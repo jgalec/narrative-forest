@@ -2,7 +2,7 @@
 
 Narrative Forest is a visual canvas for developing long-form narratives through independent LLM conversations. It combines spatially organized nodes, per-node chat and memory, Markdown documents, and relationship summaries without implicit context sharing.
 
-A local application foundation is available. It includes a Vite React client, a Hono server process, shadcn/ui initialization, client-side SQLite domain persistence, and Vitest smoke tests. It does not yet include persistence UI workflows, provider integration, or canvas interactions.
+A local application foundation is available. It includes a Vite React client, a Hono server process, shadcn/ui initialization, client-side SQLite domain persistence, and Vitest smoke tests. It also includes a bounded React Flow canvas technology proof for pan, zoom, custom nodes, resizing, directed connections, and basic keyboard accessibility. The proof does not integrate persistence, LLM requests, or production canvas workflows.
 
 ## Local Development
 
@@ -49,5 +49,6 @@ pnpm build
 - `pnpm` is the package manager.
 - Hono runs locally alongside Vite as a stateless proxy for LLM requests; it does not persist narrative data.
 - Drizzle ORM persists application data in a local SQLite database on the user's device.
+- React Flow (`@xyflow/react`) is selected for the production canvas implementation after the isolated Phase 2.1 proof; the canvas does not infer or transfer narrative or LLM context from visual layout or branches.
 - The MVP is single-user and local-only, with no authentication.
 - The backend calls an OpenAI-compatible API. Provider credentials remain in server environment configuration and are never stored in the database or exposed to the browser.
