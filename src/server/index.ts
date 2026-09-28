@@ -1,7 +1,9 @@
 import { serve } from "@hono/node-server"
 
-import { app } from "./app.js"
+import { createApp } from "./app.js"
+import { loadServerConfig } from "./config.js"
 
-const port = Number(process.env.PORT ?? 8787)
+const config = loadServerConfig(process.env)
+const app = createApp({ clientOrigin: config.clientOrigin })
 
-serve({ fetch: app.fetch, port })
+serve({ fetch: app.fetch, port: config.port })
