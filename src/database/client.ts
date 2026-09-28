@@ -1,6 +1,8 @@
 import { drizzle } from "drizzle-orm/sqlite-proxy"
 import { SQLocalDrizzle } from "sqlocal/drizzle"
 
+import * as schema from "@/database/schema"
+
 export const DATABASE_FILE = "narrative-forest.sqlite3"
 
 export async function createDatabaseClient(databasePath = DATABASE_FILE) {
@@ -10,6 +12,7 @@ export async function createDatabaseClient(databasePath = DATABASE_FILE) {
   })
   const client = new SQLocalDrizzle({
     databasePath,
+    onInit: (sql) => [sql`PRAGMA foreign_keys = ON`],
     onConnect: () => markConnected(),
   })
 
@@ -17,6 +20,6 @@ export async function createDatabaseClient(databasePath = DATABASE_FILE) {
 
   return {
     client,
-    db: drizzle(client.driver, client.batchDriver),
+    db: drizzle(client.driver, client.batchDriver, { schema }),
   }
 }
