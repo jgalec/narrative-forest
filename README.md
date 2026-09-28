@@ -24,6 +24,8 @@ pnpm dev:server
 
 `pnpm dev:client` starts the Vite client at `http://localhost:5173`. `pnpm dev:server` starts the Hono server at `http://localhost:8787`; it currently exposes `GET /health`, which returns `{"status":"ok"}`.
 
+During development, Vite proxies `/api` requests to Hono. `POST /api/proxy` validates a JSON object and returns controlled errors until a provider adapter is configured; this scaffold does not select or call a provider.
+
 ## Validation
 
 ```bash
