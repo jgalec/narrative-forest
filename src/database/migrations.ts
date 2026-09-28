@@ -1,16 +1,14 @@
 import type { SQLocalDrizzle } from "sqlocal/drizzle"
 
 const MIGRATIONS_TABLE = "__narrative_forest_migrations"
-export const PERSISTENCE_PROBE_TABLE = "__narrative_forest_persistence_probe"
 
-const migrations = [
-  {
-    id: "202609280001_browser_sqlite_baseline",
-    statements: [
-      `CREATE TABLE "${PERSISTENCE_PROBE_TABLE}" ("id" INTEGER PRIMARY KEY CHECK ("id" = 1), "value" TEXT NOT NULL)`,
-    ],
-  },
-] as const
+type Migration = {
+  id: string
+  statements: readonly string[]
+}
+
+// Phase 1.4 adds the first immutable domain migration.
+const migrations: readonly Migration[] = []
 
 export async function applyMigrations(client: Pick<SQLocalDrizzle, "sql" | "transaction">) {
   await client.sql(`CREATE TABLE IF NOT EXISTS "${MIGRATIONS_TABLE}" ("id" TEXT PRIMARY KEY NOT NULL)`)
