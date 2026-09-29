@@ -313,7 +313,7 @@ function ConversationPanel({
   return (
     <Sidebar
       aria-label="Conversation panel"
-      className="!p-2 [&_[data-slot=sidebar-inner]]:overflow-hidden [&_[data-slot=sidebar-inner]]:rounded-[24px]"
+      className="p-2! **:data-[slot=sidebar-inner]:overflow-hidden **:data-[slot=sidebar-inner]:rounded-[24px]"
       collapsible="offcanvas"
       role="complementary"
       side="left"
