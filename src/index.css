@@ -2,6 +2,7 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
+@import "@fortawesome/fontawesome-free/css/all.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -131,4 +132,19 @@
   #root {
     @apply min-h-svh;
   }
+}
+
+.react-flow__edge-path {
+  stroke: var(--muted-foreground);
+}
+
+.react-flow__handle {
+  border-color: var(--background);
+  background: var(--primary);
+}
+
+.react-flow .react-flow__attribution {
+  inset-inline-start: 50%;
+  inset-inline-end: auto;
+  transform: translateX(-50%);
 }

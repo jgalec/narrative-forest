@@ -2,7 +2,7 @@
 
 Narrative Forest is a visual canvas for developing long-form narratives through independent LLM conversations. It combines spatially organized nodes, per-node chat and memory, Markdown documents, and relationship summaries without implicit context sharing.
 
-A local application foundation is available. It includes a Vite React client, a Hono server process, shadcn/ui initialization, client-side SQLite domain persistence, and Vitest smoke tests. It also includes a bounded React Flow canvas technology proof for pan, zoom, custom nodes, resizing, directed connections, and basic keyboard accessibility. The proof does not integrate persistence, LLM requests, or production canvas workflows.
+A local application foundation is available. It includes a Vite React client, a Hono server process, shadcn/ui initialization, client-side SQLite domain persistence, and Vitest smoke tests. It also includes an in-memory React Flow workspace shell with dotted-grid navigation controls, local node and sticky-note creation with undo/redo, and a selected-node conversation sidebar using shadcn primitives and semantic theme tokens. The shell defaults to the shadcn dark theme and does not load or persist narrative data, send LLM requests, upload images, or implement production canvas workflows.
 
 ## Local Development
 

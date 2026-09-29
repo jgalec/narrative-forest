@@ -1,5 +1,5 @@
-import { CanvasSpike } from "@/canvas-spike/CanvasSpike"
+import { WorkspaceCanvas } from "@/canvas/WorkspaceCanvas"
 
 export function App() {
-  return <CanvasSpike />
+  return <WorkspaceCanvas />
 }
